@@ -29,8 +29,8 @@ services:
       - S3_ENDPOINT={S3_ENDPOINT}
       - S3_BUCKET={S3_BUCKET}
     volumes:
-      - .:/app
-      - /app/node_modules
+      - .:/limaudio-api
+      - /limaudio-api/node_modules
     restart: unless-stopped
   nginx:
     image: nginx:latest
