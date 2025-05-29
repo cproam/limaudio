@@ -10,7 +10,7 @@ RUN npm install -g node-gyp
 RUN npm config set fetch-retry-maxtimeout 600000 -g && npm install
 ENV PATH=/limadio-api/node_modules/.bin:$PATH
 COPY . .
-RUN chown -R node:node /opt/app
+RUN chown -R node:node /limadio-api/
 USER node
 RUN ["npm", "run", "build"]
 EXPOSE 1337
