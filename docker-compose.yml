@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: limaudio-api
     ports:
-      - '1337:1337'
+      - '8000:8000'
     environment:
       - HOST=${HOST}
       - PORT=${PORT}
@@ -28,17 +28,4 @@ services:
       - S3_REGION=${S3_REGION}
       - S3_ENDPOINT={S3_ENDPOINT}
       - S3_BUCKET={S3_BUCKET}
-    # volumes:
-    #   - .:/limaudio-api
-    #   - /limaudio-api/node_modules
     restart: unless-stopped
-  # nginx:
-  #   image: nginx:latest
-  #   container_name: limaudio-nginx
-  #   ports:
-  #     - '80:80'
-  #   # volumes:
-  #   #   - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
-  #   depends_on:
-  #     - strapi
-  #   restart: unless-stopped
