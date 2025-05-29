@@ -8,14 +8,10 @@ ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 
 WORKDIR /usr/src/app
-FROM base AS build
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
-RUN pnpm run build
 COPY limaudio-api/package.json limaudio-api/pnpm-lock.yaml /usr/src/app/
-RUN p install -g node-gyp
 RUN pnpm install
 ENV PATH=/usr/src/app/node_modules/.bin:$PATH
-COPY . .
+COPY limaudio-api/. /usr/src/app/.
 RUN chown -R node:node /usr/src/app/
 USER node
 RUN pnpm run build
