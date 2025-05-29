@@ -7,6 +7,8 @@ ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 WORKDIR /usr/src/app
 COPY limaudio-api/package.json limaudio-api/pnpm-lock.yaml /usr/src/app/
 RUN pnpm install
