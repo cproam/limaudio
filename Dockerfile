@@ -5,7 +5,7 @@ ARG NODE_ENV=development
 ENV NODE_ENV=${NODE_ENV}
 
 WORKDIR /usr/src/app
-COPY /limaudio-api/package.json /limaudio-api/package-lock.json /usr/src/app/
+COPY limaudio-api/package.json limaudio-api/package-lock.json /usr/src/app/
 RUN npm install -g node-gyp
 RUN npm config set fetch-retry-maxtimeout 600000 -g && npm install
 ENV PATH=/usr/src/app/node_modules/.bin:$PATH
