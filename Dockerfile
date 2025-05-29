@@ -10,8 +10,8 @@ COPY limaudio-api/package.json limaudio-api/pnpm-lock.yaml /usr/src/app/
 RUN pnpm install
 ENV PATH=/usr/src/app/node_modules/.bin:$PATH
 COPY limaudio-api/. /usr/src/app/.
-RUN chown -R node:node /usr/src/app/
-USER node
+# RUN chown -R node:node /usr/src/app/
+# USER node
 RUN pnpm run build
 EXPOSE 8000
-RUN pnpm run start
+# RUN pnpm run start
