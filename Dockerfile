@@ -14,5 +14,4 @@ RUN chown -R node:node /usr/src/app/
 USER node
 RUN pnpm run build
 EXPOSE 8000
-# CMD ["pnpm", "run", "start"]
 RUN pnpm run start
